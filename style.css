@@ -1,51 +1,147 @@
-*{
+/* Global Styles */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'poppins', sans-serif;
 }
- .container{
-    width: 100%;
-    min-height: 100vh;
-    padding: 5%;
-    background-image: linear-gradient(rgba(0,8,51,0.9),rgba(0,8,51,0.9)), url(images/background.jpg);
-    background-position: center;
-    background-size: cover;
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #1D2671, #C33764); /* Rich gradient background */
+    color: #fff;
     display: flex;
-    align-items: center;
     justify-content: center;
- }
- .search-bar{
-    width: 100%;
-    max-width: 700px;
-    background: rgba(255, 255, 255, 0.2);
-    display: flex;
     align-items: center;
-    border-radius: 60px;
-    padding: 10px 20px;
-    backdrop-filter: blur(4px) saturate(180%);
- }
- .search-bar input{
-    background: transparent;
-    flex: 1;
-    border: 0;
-    outline: none;
-    padding: 24px 20px;
-    color: #cac7ff;
- }
+    height: 100vh;
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.3s ease;
+}
 
- ::placeholder{
-    color: #cac7ff;
- }
- .search-bar button img{
-    width: 25px;
- }
- .search-bar button{
-    border: 0;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    background: #58629b;
-    cursor: pointer;
- }
+/* Container for central content */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7); /* Slight transparency for the container */
+    border-radius: 0px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
 
+/* Main heading */
+h1 {
+    margin-top: -70px;
+    font-size: 3.5rem;
+    color: #f8f8f8;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    font-weight: bold;
+    transition: text-shadow 0.3s ease;
+}
+
+h1:hover {
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.9);
+}
+
+/* Clock Section (Horizontal Layout) */
+.clock-section {
+    display: flex;
+    gap: 30px;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Ensures responsiveness */
+    margin-top: 30px;
+}
+
+/* Individual Clock Box Styling */
+.clock {
+    margin-top: -50px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    width: 30%;
+    min-width: 250px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.clock:hover {
+    transform: scale(1.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* Clock Title (City Name) */
+.clock h2 {
+    font-size: 2rem;
+    color: #FFD700; /* Gold accent for titles */
+    margin-bottom: 15px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+/* Time Styling */
+.clock .time {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    color: #E0E0E0;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+/* Weather Info */
+.clock .weather {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #B0B0B0;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Animated Weather Icon */
+.clock .weather img {
+    width: 35px;
+    height: 35px;
+    margin-left: 10px;
+    vertical-align: middle;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .clock-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    .clock {
+        width: 80%;
+        margin-bottom: 30px;
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+
+    .clock .time {
+        font-size: 3rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+}
